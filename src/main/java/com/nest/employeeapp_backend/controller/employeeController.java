@@ -6,5 +6,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class employeeController {
 
+    @GetMapping("/")
+        public String HomePage(){
+            return "welocome to employee app";
+        }
+
 
 }
