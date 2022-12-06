@@ -1,6 +1,7 @@
 package com.nest.employeeapp_backend.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -12,16 +13,16 @@ public class employeeController {
         }
 
 
-    @GetMapping("/add")
+    @PostMapping("/add")
         public  String AddPage(){
         return  "This is add employee page";
     }
 
-    @GetMapping("/search")
+    @PostMapping("/search")
         public  String SerachPage(){
         return "This is search page";
     }
-    @GetMapping("/edit")
+    @PostMapping("/edit")
     public  String EditPage(){
         return "This is Edit page";
     }
@@ -29,7 +30,7 @@ public class employeeController {
     public  String ViewPage(){
         return "This is View page";
     }
-    @GetMapping("/Delete")
+    @PostMapping("/Delete")
     public  String DeletePage(){
         return "This is Delete page";
     }
