@@ -30,10 +30,13 @@ public class employeeController {
 
         return  map;
     }
+    @CrossOrigin(origins = "*")
+    @PostMapping(path = "/search",consumes = "application/json",produces = "application/json")
+        public List<Employee>SearchPage(@RequestBody Employee e){
+        String empcode = String.valueOf(e.getEmpcode());
+        System.out.println(empcode);
+        return (List<Employee>) dao.SearchEmployee(e.getEmpcode());
 
-    @PostMapping("/search")
-        public  String SerachPage(){
-        return "This is search page";
     }
     @PostMapping("/edit")
     public  String EditPage(){
@@ -44,8 +47,16 @@ public class employeeController {
     public List<Employee>view(){
         return (List<Employee>) dao.findAll();
     }
-    @PostMapping("/Delete")
-    public  String DeletePage(){
-        return "This is Delete page";
+    @CrossOrigin(origins = "*")
+    @PostMapping(path = "/delete",consumes = "application/json",produces = "application/json")
+    public HashMap<String, String> DeletePage(@RequestBody Employee e){
+        String id = String.valueOf(e.getId());
+        System.out.println(id);
+        dao.deleteEmployee(e.getId());
+        HashMap<String, String> map = new HashMap<>();
+        map.put("status","success");
+        return map;
+
+
     }
 }
